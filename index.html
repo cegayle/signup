@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up & Log In</title>
+  <link rel="stylesheet" href="user.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form id="signupForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder= "username" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder= "password" required><br><br>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="index2.html">LOG IN</a></p>
+    </form>
+  </div>
+
+  <script>
+    const signUpForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
+
+    signUpForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      localStorage.setItem(username, password);
+      alert(`User ${username} successfully signed up!`);
+      signUpForm.reset();
+    });
+
+  </script>
+</body>
+</html>

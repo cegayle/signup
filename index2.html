@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up & Log In</title>
+  <link rel="stylesheet" href="user.css">
+</head>
+<body>
+  <div class="container">   
+    <h1>Log In</h1>
+    <form id="loginForm">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" placeholder= "username" required><br><br>
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" placeholder= "password" required><br><br>
+      <button type="submit">Log In</button>
+      <p>Don't have an account yet? <a href="index.html">SIGN UP</a></p>
+    </form>
+  </div>
+
+  <script>
+
+    loginForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const loginUsername = document.getElementById('loginUsername').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+      const storedPassword = localStorage.getItem(loginUsername);
+
+      if (storedPassword === loginPassword) {
+        alert(`Welcome back, ${loginUsername}!`);
+        loginForm.reset();
+      } else {
+        alert(`Incorrect username or password.`);
+      }
+    });
+  </script>
+</body>
+</html>
